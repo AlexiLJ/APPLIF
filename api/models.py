@@ -32,7 +32,7 @@ class Offer(models.Model):
 
     offer_id = models.AutoField(primary_key=True)
     price = models.PositiveIntegerField()
-    items_in_stock = models.IntegerField()
+    items_in_stock = models.PositiveIntegerField()
     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=False, blank=False)
 
     class Meta:
