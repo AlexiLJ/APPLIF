@@ -10,7 +10,7 @@ class Product(models.Model):
     description: string 
     '''
 
-    product_id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=500)
     class Meta:
@@ -30,7 +30,7 @@ class Offer(models.Model):
     items_in_stock: integer 
     '''
 
-    offer_id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     price = models.PositiveIntegerField()
     items_in_stock = models.PositiveIntegerField()
     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=False, blank=False)
@@ -39,4 +39,4 @@ class Offer(models.Model):
         verbose_name_plural = 'offers'
     
     def __str__(self):
-        return str(self.offer_id)
+        return str(self.id)
