@@ -1,10 +1,12 @@
 from .serializers import ProductSerializer
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated #Authentication
 from rest_framework import viewsets, status
 from .models import Product
 # Create your views here.
 
 class ProductViewSet(viewsets.ViewSet):
+    #permission_classes = (IsAuthenticated,) # Authentication
     def p_list(self, request): 
         products = Product.objects.all()
         serializer = ProductSerializer(products, many=True)

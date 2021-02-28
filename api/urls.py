@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path
+
 from .views import ProductViewSet
 
 urlpatterns = [
@@ -11,5 +12,6 @@ urlpatterns = [
         'get': 'retrieve',
         'put': 'update',
         'delete': 'destroy'
-    }))
+    })),
+  
 ]
