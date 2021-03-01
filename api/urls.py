@@ -5,7 +5,7 @@ from .views import ProductViewSet
 
 urlpatterns = [
     path('products', ProductViewSet.as_view({
-        'get':'p_list',
+        'get':'get',
         'post': 'create'
     })),
     path('products/<str:pk>', ProductViewSet.as_view({
