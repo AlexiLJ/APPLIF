@@ -1,16 +1,18 @@
-from .serializers import ProductSerializer
+from .serializers import ProductSerializer, OfferSerializer
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated #Authentication
-from rest_framework.authentication import TokenAuthentication, BasicAuthentication, SessionAuthentication
+from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework import viewsets, status
-from .models import Product
+from .models import Product, Offer
 # Create your views here.
 
 class ProductViewSet(viewsets.ViewSet):
     permission_classes = (IsAuthenticated,) # Authentication
-    authentication_classes = (TokenAuthentication, SessionAuthentication, BasicAuthentication)
+    authentication_classes = (TokenAuthentication, SessionAuthentication)
+
     def get(self, request): 
         products = Product.objects.all()
+        #offers = products.offer_set.all()
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
