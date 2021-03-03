@@ -20,8 +20,8 @@ from django.contrib.auth.views import LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('api.urls')),
-    path('api-token-auth/', views.obtain_auth_token), #Authentification
+    path('', include('api.urls')),
+    #path('api-token-auth/', views.obtain_auth_token), 
     path('login/', LoginView.as_view(template_name='api/auth.html')),
     
 ]
